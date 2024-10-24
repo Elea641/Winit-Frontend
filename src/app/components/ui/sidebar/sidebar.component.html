@@ -1,0 +1,25 @@
+<ng-container *ngIf="isDesktop || isLargeDesktop; else mobile">
+  <app-sidebar-desktop
+    (isDrawerOpenedChange)="onReceiveDrawerChange($event)"
+    (newSearchValueEventFromSidebar)="onReceiveSearchValueFromInput($event)"
+    (newChronologicalFilterChange)="onReceiveChronologicalFilterChange($event)"
+    (newShowOnlyUpcomingTournaments)="
+      onReceiveShowOnlyUpcomingTournamentsChange($event)
+    "
+    (newShowNonFullTournaments)="onReceiveShowNonFullTournamentsChange($event)"
+    (newSportFilter)="onReceiveSportFilterChange($event)"
+    (newApplyFilters)="onReceiveApplyFilters($event)"
+    (newResetFilters)="onReceiveResetFilters($event)"></app-sidebar-desktop>
+</ng-container>
+<ng-template #mobile>
+  <app-sidebar-mobile
+    (newSearchValueEventFromSidebar)="onReceiveSearchValueFromInput($event)"
+    (newChronologicalFilterChange)="onReceiveChronologicalFilterChange($event)"
+    (newShowOnlyUpcomingTournaments)="
+      onReceiveShowOnlyUpcomingTournamentsChange($event)
+    "
+    (newShowNonFullTournaments)="onReceiveShowNonFullTournamentsChange($event)"
+    (newSportFilter)="onReceiveSportFilterChange($event)"
+    (newApplyFilters)="onReceiveApplyFilters($event)"
+    (newResetFilters)="onReceiveResetFilters($event)"></app-sidebar-mobile>
+</ng-template>
